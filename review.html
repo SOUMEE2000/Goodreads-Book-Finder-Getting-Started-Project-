@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    let counter=0;
+    document.querySelectorAll('#rate').forEach(button => {
+        button.onclick = () => {
+
+               button.style.color ="rgb(255,194,102)";
+               counter++;
+              document.querySelector('#number').innerHTML=counter;
+              button.disabled=true;
+        };
+
+    });
+
+});
+</script>
+{% endblock %}
+
+{% block body %}
+<ul class="nav nav-pills"style= "font-size:25px">
+   <li class="nav-item">
+   <a class="nav-link" href="{{url_for('logout')}}"><b>Logout</b></a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="{{url_for('home')}}"><b>Home</b></a>
+   </li>
+</ul>
+<br>
+<b><h3> @{{username}}</h3></b>
+
+<br><br>
+ <ul>
+    <h3>TITLE:   {{books.title}} </h3>
+    <li><b>AUTHOR:</b>   {{books.author}}</li>
+    <li><b>ISBN:</b>   {{books.isbn}}</li>
+    <li><b>YEAR OF PUBLICATION: </b>  {{books.year}}</li>
+ </ul>
+<br><br>
+
+<ul style="list-style-type:none;">
+{% for rev in revs %}
+   <li style= "background-color: #ffffe6; padding: 20px; border: 3px solid black; border-radius: 5px; ">
+    <h5 style="float: right;">@{{rev.username}}</h5>
+    <br>
+    {% for rating in range(0, rev.ratings) %}
+         <i class="fas fa-star" style="float:right;"></i>
+    {% endfor %}
+    <br>
+    <b>    {{rev.review}}</b>
+   </li>
+{% endfor %}
+</ul>
+
+<br><br>
+<label><b>Write your review and rate it</b></label>
+<br>
+<div style="float:right;">
+<button id="rate"><i class="fas fa-star"></i></button>
+<button id="rate"><i class="fas fa-star"></i></button>
+<button id="rate"><i class="fas fa-star"></i></button>
+<button id="rate"><i class="fas fa-star"></i></button>
+<button id="rate"><i class="fas fa-star"></i></button>
+:<div id="number"></div>
+</div>
+<br>
+<form action="{{url_for('reviews', title= books.title)}}">
+  <div class="form-group">
+
+  <textarea class="form-control" name="myrev" rows=5></textarea>
+  <br>
+
+  <button class="btn btn-primary">+ Add review</button>
+</div>
+</form>
+{% endblock %}

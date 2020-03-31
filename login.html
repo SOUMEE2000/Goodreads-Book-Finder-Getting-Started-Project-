@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login!!
+{% endblock %}
+
+{% block body %}
+
+<br><br>
+<h4> You have successfully registered with us. Please login to access your account</h4>
+<br><br><br>
+<form action="{{url_for('home')}}", method="POST">
+  <div class="form-group">
+     <h4> Username:</h4>
+     <input class="form-control" name="username" >
+  </div>
+  <div class="form-group">
+     <h4> Password:</h4>
+     <input class="form-control" name="password" type="password" >
+  </div>
+
+  <button type="submit" class="btn btn-success">Login!</button>
+</form>
+
+{% endblock %}

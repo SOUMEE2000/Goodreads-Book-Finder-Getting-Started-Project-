@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="nav nav-pills" style= "font-size:25px;">
+   <li class="nav-item">
+   <a class="nav-link" href="{{url_for('logout')}}"><b>Logout</b></a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="{{url_for('home')}}"><b>Home</b></a>
+   </li>
+</ul>
+<br>
+<b><h3>@{{username}}</h3></b>
+
+{{message}}
+    <ul>
+     {% for book in books %}
+         <br>
+         <h3><b>TITLE:</b><a href="{{url_for('details' , title= book.title) }}">   {{book.title}}</a></h3>
+         <li><b>AUTHOR:</b>  {{book.author}}</li>
+         <li><b>ISBN:</b>  {{book.isbn}}</li>
+        <br><br>
+     {% endfor %}
+
+    </ul>
+{% endblock %}

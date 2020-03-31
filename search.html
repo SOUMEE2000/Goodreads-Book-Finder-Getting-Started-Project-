@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<ul class="nav nav-pills" style= "font-size:25px;"">
+   <li class="nav-item">
+   <a class="nav-link" href="{{url_for('logout')}}"><b>Logout</b></a>
+   </li>
+   <li class="nav-item">
+   <a class="nav-link" href="{{url_for('home')}}"><b>Home</b></a>
+   </li>
+</ul>
+<br>
+<b><h3>@{{username}}</h3></b>
+
+ {{message}}
+
+  <form action="{{url_for('results')}}" method="post">
+    <br><br>
+     <div class="form-group">
+       <input class="form-control" placeholder="Search isbn here..." name="isbn">
+    </div>
+    <div class="form-group">
+       <button class="btn btn-primary"> Search </button>
+    </div>
+    <br>
+    <br>
+      <div class="form-group">
+        <input class="form-control" placeholder="Search title here..." name="title">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary"> Search </button>
+      </div>
+      <br>
+      <br>
+       <div class="form-group">
+         <input class="form-control" placeholder="Search author here..." name="author">
+      </div>
+      <div>
+         <button class="btn btn-primary"> Search </button>
+      </div>
+  </form>
+{% endblock %}
