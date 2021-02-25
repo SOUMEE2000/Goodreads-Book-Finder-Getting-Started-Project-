@@ -1,4 +1,6 @@
 # Starter Project:
+## Inspiration: Harvard's CS50(2018)
+**Youtube:** https://www.youtube.com/watch?v=j5wysXqaIV8&list=PLhQjrBD2T382hIW-IsOVuXP1uMzEvmcE5&index=4
 A good idea of the basics of the backend can be achieved here.
 Bookrate
 line #17 url for databse has to be set in
